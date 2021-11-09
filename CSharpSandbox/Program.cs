@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
 namespace CSharpSandbox
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             //int a = 0;
             //Console.WriteLine(a);
             //string a_str = a.ToString();
@@ -33,7 +33,7 @@ namespace CSharpSandbox
             //foo *= 3;
             //Console.WriteLine("foo = {0}", foo);
 
-            //char symb = (char) 48;
+            //char symb = (char)48;
             //Console.WriteLine(symb);
             //Console.WriteLine(sizeof(char));
             //Console.WriteLine("Русский язык выводится без подключения setlocale");
@@ -48,11 +48,13 @@ namespace CSharpSandbox
 
             //ax + b = 0
 
-            int a, b;
-            a = int.Parse(Console.ReadLine());
-            b = Convert.ToInt32(Console.ReadLine());
+            double a, b;
+            Console.Write("Write down a: ");
+            a = double.Parse(Console.ReadLine());
+            Console.Write("Write down b: ");
+            b = Convert.ToDouble(Console.ReadLine());
             double x = -b / a;
-            Console.WriteLine(x);
+            Console.WriteLine(x);  
 
             Console.WriteLine("x = {0}; a = {1}, b = {2}", x, a, b);
             Console.WriteLine($"x = {x}; a = {a}, b = {b}");
