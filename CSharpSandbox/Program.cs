@@ -206,32 +206,173 @@ namespace CSharpSandbox
             //}
             //    Console.WriteLine();
 
-            //triangle array
-            int[][] trArr = new int[3][]; // 3 empty rows created here
-            trArr[0] = new int[1];
-            trArr[1] = new int[2];
-            trArr[2] = new int[3];
 
 
-            for (int i = 0; i < trArr.Length; i++)
-            {
-                for (int j = 0; j < trArr[i].Length; j++)
-                {
-                    trArr[i][j] = i - j - 10;
-                    Console.Write($"{trArr[i][j]} ");
-                }
-                Console.WriteLine();
-            }
 
-            Console.WriteLine();
-            foreach ( int[] str in trArr)
-            {
-                foreach(int elem in str)
-                {
-                    Console.Write($"{elem} ");
-                }
-                Console.WriteLine();
-            }
+            //----------------------------------------------------triangle array----------------------------------------------------------------------------
+            //int[][] trArr = new int[3][]; // 3 empty rows created here
+            //trArr[0] = new int[1];
+            //trArr[1] = new int[2];
+            //trArr[2] = new int[3];
+
+
+            //for (int i = 0; i < trArr.Length; i++)
+            //{
+            //    for (int j = 0; j < trArr[i].Length; j++)
+            //    {
+            //        trArr[i][j] = i - j - 10;
+            //        Console.Write($"{trArr[i][j]} ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //Console.WriteLine();
+            //foreach ( int[] str in trArr)
+            //{
+            //    foreach(int elem in str)
+            //    {
+            //        Console.Write($"{elem} ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------ARRAYS 11/21/2021---------------------------------------------------------------------------------
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            //int[] arr = new int[10];
+
+            ////filling of the array using RANDOM
+
+            //Random rand = new Random();
+            //for (int i = 0; i < arr.Length; i++)
+            //    arr[i] = rand.Next(10, 20);
+
+            ////print array
+            //foreach (int elem in arr)
+            //    Console.Write($"{elem} ");
+            //Console.WriteLine();
+
+            ////array sort
+            //Array.Sort(arr);
+
+            ////print array
+            //foreach (int elem in arr)
+            //    Console.Write($"{elem} ");
+            //Console.WriteLine();
+
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------------
+            //-------------------------------------------------------------STRING------------------------------------------------------------------------------
+            //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            //String str = null;
+            //string str1;
+            //string[] str2 = new string[10];
+
+            //Console.Write(str2.Length);
+
+            //Console.Write("Write down a string: ");
+            //str = Console.ReadLine();
+
+            //Console.WriteLine($"You've written down: " + str);
+
+            ////Parsing of 2nd word in string SOME TRING SOME STRING
+            //int space_index = str.IndexOf(' ');
+            //if (space_index == -1)
+            //    Console.WriteLine("ONE WORD IN A STRING");
+            //str = str.Substring(space_index + 1);
+            //space_index = str.IndexOf(' ');
+            //if ( space_index != -1)
+            //    str = str.Substring(0, space_index);
+            //Console.WriteLine("Second word is: " + str);
+
+
+            //TASK: divide strings for tokens
+
+            ////String str = null;
+            //Console.Write("Write down a string: ");
+            //str = Console.ReadLine();
+
+            //Console.WriteLine("You've written: " + str);
+
+            ////spliting
+            //string[] strs =str.Split(new char[]{' ', ',');
+            //for ( int i=0; i< strs.Length; i++)
+            //{
+            //    Console.WriteLine($"Word {i + 1}: {strs[i]}");
+            //}
+
+
+            //String comparison
+
+            //string pass = "1234abc";
+
+
+            //MARKS LIST TASK
+
+            //string[] subjects = null;
+            //int[][] marks = null;
+
+
+            //Console.Write("Number of subjecs: ");
+            //int n = Convert.ToInt32(Console.ReadLine());
+            //subjects = new string[n];
+            //for (int i=0; i< n; i++)
+            //{
+            //    Console.Write($"Write subject ({i + 1}/{n}: ");
+            //    subjects[i] = Console.ReadLine();
+            //}
+
+            //marks = new int[n][];
+
+            //for(int i =0; i<n; i++)
+            //{
+            //    Console.Write($"Write down number of marks {subjects[i]}");
+            //    int m = Convert.ToInt32(Console.ReadLine());
+            //    marks[i] = new int[m];
+            //    for( int j =0; j < m; j++)
+            //    {
+            //        Console.Write($"Fill the mark ({j + 1}/{m}): ");
+            //        marks[i][j] = Convert.ToInt32(Console.ReadLine());
+
+            //    }
+            //}
+
+            ////printing of array
+
+            //for (int i=0; i< subjects.Length; i++)
+            //{
+            //    Console.Write($"{subjects[i]}: ");
+            //    foreach(int mark in marks[i])
+            //    {
+            //        Console.Write($" {mark} ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            ////count average
+            //double total_sum = 0;
+            //for(int i=0; i< subjects.Length; i++)
+            //{
+            //    double av = marks[i].Average();
+            //    total_sum += av;
+            //    Console.WriteLine($"Average for {subjects[i]} = {av}");
+            //}
+
+            //Console.WriteLine($"Total average : {total_sum / subjects.Length}");
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------COMMAND LINE ARGUMENTS---------------------------------------------------------------------------
+            //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            Console.Write("COMMANDLINE ARGUMENTS");
+
 
 
 
