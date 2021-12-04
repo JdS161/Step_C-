@@ -307,7 +307,7 @@ namespace CSharpSandbox
             //    Console.WriteLine("ONE WORD IN A STRING");
             //str = str.Substring(space_index + 1);
             //space_index = str.IndexOf(' ');
-            //if ( space_index != -1)
+            //if (space_index != -1)
             //    str = str.Substring(0, space_index);
             //Console.WriteLine("Second word is: " + str);
 
