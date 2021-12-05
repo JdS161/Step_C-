@@ -30,6 +30,37 @@ namespace CSharpSandbox
             public int bar;
         }
 
+        interface IDiggingCapable
+        {
+            //desription of methods which has to be implemented in inharits
+
+            void Dig();
+
+        }
+
+        // interface implementation
+        class Handyman : IDiggingCapable
+        {
+            public void Dig()
+            {
+                Console.WriteLine("Handyman is dgging");
+            }
+        }
+        class Tractor : IDiggingCapable
+        {
+            public void Dig()
+            {
+                Console.WriteLine("Tractor is digging using scoop");
+            }
+        }
+
+        static void DigBigCrater(IDiggingCapable[] resources)
+        {
+            foreach (IDiggingCapable resource in resources)
+            {
+                resource.Dig();
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -398,7 +429,6 @@ namespace CSharpSandbox
             //---------------------------------------------------STRUCTURES AND CLASSES 11/28/2021-------------------------------------------------------------------
             //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
             // ----------------------------------------------------------STRUCTURES----------------------------------------------------------------------------------
 
 
@@ -471,25 +501,84 @@ namespace CSharpSandbox
             //}
 
 
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------
+            //--------------------------------------------- INHERITANCE POLYMORPHISM INTERFACES 12/05/2021 ----------------------------------------------------------
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            //Foo1 foo = new Foo1();
+            //foo.Bar = 10;
+            //Console.WriteLine(foo.Bar);
+            //Foo1.StaticBar = 3;
+            //Foo1.StaticBarSpam();
+
+            //Shape figure = new Shape();
+            //figure.Draw();
+            //Rectangle rect = new Rectangle("TEST",5,5);
+            //Console.WriteLine(rect);
+            //rect.Draw();
+
+            //Rectangle rect = new Rectangle("TEST",5,5);
+
+            //Shape figure = rect;
+            //DrawShape(figure);
+            //Console.WriteLine(figure.ToString());
+
+            //Console.WriteLine(rect.GetDiagonal());
 
 
 
+            //Handyman man = new Handyman();
+            //man.Dig();
+            //Tractor tractor = new Tractor();
+            //tractor.Dig();
+
+            //IDiggingCapable[] digCrew = new IDiggingCapable[2] { man, tractor };
+            //DigBigCrater(digCrew);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+            Rectangle rect = new Rectangle("TEST", 4, 6);
+            ConsoleDraw(rect);
+            
         }
 
+        static void ConsoleDraw(IDrawable drawable)
+        {
+            drawable.Draw();
+            drawable.Print();
+        }
+         static void DrawShape(Shape figure)
+        {
+            //figure.Draw();
+            //Rectangle rect = (Rectangle)figure;       // direct casting is FORBIDDEN, implicit casting is not so good
+            //Console.WriteLine(rect.GetDiagonal());
+
+            ////1. as
+            //Rectangle rect = figure as Rectangle; // if everything id fine => rect != null, otherwise rect == null
+            //if (rect !=null)
+            //{
+            //    Console.WriteLine(rect.GetDiagonal());
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Can't cast base type");
+            //}
+
+            //2. is
+            if (figure is Rectangle)
+            {
+                Rectangle rect = (Rectangle)figure;                
+                Console.WriteLine(rect.GetDiagonal());
+            }
+            else
+            {
+                Console.WriteLine("Can't cast base type");
+            }
+
+
+           
+        }
 
 
     }
