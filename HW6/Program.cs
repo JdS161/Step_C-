@@ -57,7 +57,7 @@ namespace HW6_CSharp
                 FillMarks(ref marks, subjects, ref choosenSubj, ref numMarksAdded, ref flags);
                 PrintTable(ref marks, subjects, numSubj, ref flags);
 
-                AverageTotal(ref marks, ref flags);
+                //AverageTotal(ref marks, ref flags);
                 Console.WriteLine("\nPress <Esc> for exit, <Enter> to continue");
 
             }
@@ -96,20 +96,23 @@ namespace HW6_CSharp
 
         }
         
-        static void AverageDiscipline(ref int[][] _marks, int _choosenSubj, ref bool[] _flags)
+        static double AverageDiscipline(ref int[][] _marks, int _choosenSubj, ref bool[] _flags)
         {
             if(_flags[_choosenSubj] == false)
             {
-                Console.Write($" {0:##.0}");
+                double result = 0.0;
+                return result + .0;
+                //Console.Write($" {0:##.0}");
             }
             else
             {
-                Console.Write($"{_marks[_choosenSubj].Average():##.0}");
+                return Math.Round(_marks[_choosenSubj].Average(), 1) + .0;
+                //Console.Write($"{_marks[_choosenSubj].Average():##.0}");
 
             }
 
         }
-        static void AverageTotal(ref int[][] _marks, ref bool[] _flags)
+        static double AverageTotal(ref int[][] _marks, ref bool[] _flags)
         {
             double result = 0.0;
             for (int i = 0; i <_marks.Length ; i++)
@@ -123,14 +126,16 @@ namespace HW6_CSharp
                     result += _marks[i].Average();
                 }
             }
-            Console.WriteLine($"Total average: {result / _marks.Length:##.0}");
+            result = result / _marks.Length;
+            return Math.Round(result, 1);
+            //Console.WriteLine($"Total average: {result / _marks.Length:##.0}");
         }
         static void MinMark(ref int[][] _marks, int _choosenSubj, ref bool[] _flags)
         {
             int minMark = 5;
             if(_flags[_choosenSubj] == false)
             {
-                Console.Write("N/a");
+                Console.Write(" NO");
             }
             else
             {
@@ -146,31 +151,152 @@ namespace HW6_CSharp
 
         }
 
-        static void MaxMark()
+        static void MaxMark(ref int[][] _marks, int _choosenSubj, ref bool[] _flags)
         {
+            int maxMark = 0;
+            if (_flags[_choosenSubj] == false)
+            {
+                Console.Write(" NO");
+            }
+            else
+            {
+                for (int i = 0; i < _marks[_choosenSubj].Length; i++)
+                {
+                    if (_marks[_choosenSubj][i] > maxMark)
+                    {
+                        maxMark = _marks[_choosenSubj][i];
+                    }
+                }
+                Console.Write($" {maxMark} ");
+            }
+        }
+
+        static string Performance(ref int[][] _marks, int _choosenSubj, ref bool[] _flags)
+        {
+            if (_flags[_choosenSubj] == false)
+            {
+                return "N/a";
+            }
+            else if (_flags[_choosenSubj]==true && _marks[_choosenSubj].Length > 2 && AverageDiscipline(ref _marks, _choosenSubj, ref _flags) > 2.5)
+            {
+                return "YES";
+            }
+            else
+            {
+                return " NO";
+            }
+            
+        }
+
+        static string PerformanceTotal(ref int[][] _marks, ref bool[] _flags)
+        {
+            //bool[] flagsArray = new bool[_marks.Length];
+            bool perfFlag = false;
+            //for (int i=0; i<_marks.Length; i++)
+            //{ 
+            //    //if(_flags[i] !=false && Performance(ref _marks, i, ref _flags) == "YES")
+            //    if(_flags[i] == false )
+            //    {
+            //        flagsArray[i] = false;
+            //        //perfFlag = false;
+            //        break;
+            //    }
+            //    else if (Performance(ref _marks, i, ref _flags) == "NO")
+            //    {
+            //        flagsArray[i] = false;
+            //        //perfFlag = false;
+            //        break;
+            //    }
+            //    else if (Performance(ref _marks, i, ref _flags) == "N/a")
+            //    {
+            //        flagsArray[i] = false;
+            //        //perfFlag = false;
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        flagsArray[i] = true;
+            //        //perfFlag = true;
+            //    }
+            //}
+            //for(int i=0; i<flagsArray.Length; i++)
+            //{
+
+            //    if (flagsArray[i] == true)
+            //    {
+            //        perfFlag
+            //        //return PadCenter("YES", 5);
+            //    }
+            //    else
+            //    {
+            //        return PadCenter("NO", 5);
+            //    }
+            //}
+
+            for (int i = 0; i < _flags.Length; i++)
+            {
+                if (_flags[i] == false || Performance(ref _marks, i, ref _flags) == "NO" || Performance(ref _marks, i, ref _flags) == "N/a")
+                {
+                    perfFlag = false;
+                    break;
+                }
+                else
+                {
+                    perfFlag = true;
+                }
+            }
+               //break;
+            //} for (int i = 0; i < _marks.Length; i++)
+            //{
+            //    if(_flags[i]==false || Performance(ref _marks, i, ref _flags) == "NO" || Performance(ref _marks, i, ref _flags) == "N/a")
+            //    {
+            //        perfFlag = false;
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        perfFlag = true;
+            //    }
+            //   //break;
+            //}
+
+
+
+            if(perfFlag == false)
+            {
+                return PadCenter("NO", 5);
+            }
+            else
+            {
+                return PadCenter("YES", 5);
+            }
+
 
         }
 
-        static void Performance()
-        {
-
-        }
         static void PrintTable(ref int[][] _marks, string[] _subjects, int _numSubj, ref bool[] _flags)
         {
             System.Console.Clear();
            
             char pad = '.';
+            //char pad2 = ' ';
             Console.WriteLine();
+            Console.WriteLine("       SUBJECT     | ATT | AVG | MIN | MAX |   MARKS");
+            Console.WriteLine("  _________________|_____|_____|_____|_____|____________________________________");
             for (int i = 0; i < _numSubj; i++)
             {
-                Console.Write($" {i + 1} {_subjects[i].PadRight(15, pad)} | ");
-                AverageDiscipline(ref _marks, i, ref _flags);
-                Console.Write(" | ");
+                Console.Write($" {i + 1} {_subjects[i].PadRight(15, pad)} | " +
+                    $"{PadCenter(Performance(ref _marks,i, ref _flags),3)} |" +
+                    $"{PadCenter(AverageDiscipline(ref _marks, i, ref _flags).ToString(), 5)}| ");                
                 MinMark(ref _marks, i, ref _flags);
+                Console.Write(" | ");
+                MaxMark(ref _marks, i, ref _flags);
                 Console.Write(" | ");
                 PrintMarks(_marks, i);
                 Console.WriteLine();
             }
+            Console.WriteLine("  _________________|_____|_____|_____|__________________________________________");
+            Console.WriteLine($"       TOTAL       |{PerformanceTotal(ref _marks, ref _flags)}| {AverageTotal(ref _marks, ref _flags)} | N/a | N/a |    ");
             Console.WriteLine();
         }
 
@@ -206,10 +332,18 @@ namespace HW6_CSharp
       
         static void PrintMarks(int[][] arr, int _row)
         {
-            foreach(int item in arr[_row])
+            foreach (int item in arr[_row])
             {
                 Console.Write($"{item} ");
             }
+
+        }
+
+        static string PadCenter(string _str, int _len)
+        {
+            int spaces = _len - _str.Length;
+            int padLeft = spaces / 2 + _str.Length;
+            return _str.PadLeft(padLeft).PadRight(_len);
         }
     
     }
