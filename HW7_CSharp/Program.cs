@@ -49,8 +49,10 @@ namespace HW7_CSharp
         static ComplexNum ComplexMultiplication(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
         {
             ComplexNum complexMultiplicationResult = new ComplexNum();
-            complexMultiplicationResult.numA = _firstComplexNum.numA * _secondComplexNum.numA - _firstComplexNum.numB * _secondComplexNum.numB;
-            complexMultiplicationResult.numB = _firstComplexNum.numA * _secondComplexNum.numB + _firstComplexNum.numB * _secondComplexNum.numA;
+            complexMultiplicationResult.numA = _firstComplexNum.numA * _secondComplexNum.numA -
+                                               _firstComplexNum.numB * _secondComplexNum.numB;
+            complexMultiplicationResult.numB = _firstComplexNum.numA * _secondComplexNum.numB +
+                                               _firstComplexNum.numB * _secondComplexNum.numA;
             return complexMultiplicationResult;
         }
         static ComplexNum ComplexDivision(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
