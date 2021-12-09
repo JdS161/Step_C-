@@ -4,32 +4,7 @@ namespace HW7_CSharp
 {
     class Program
     {
-        struct ComplexNum
-        {
-            public double numA;
-            public double numB;
-            static double i = Math.Sqrt(-1);
-
-            public ComplexNum(double _numA, double _numB)
-            {
-                this.numA = _numA;
-                this.numB = _numB;
-            }
-
-            public override string ToString()
-            {
-                if(numB>0)
-                {
-                    return $"{numA} + {numB}i";
-                }
-                else
-                {
-                    return $"{numA} - {Math.Abs(numB)}i";
-                }
-                
-            }
-
-        }
+        
 
         static ComplexNum ComplexAddition(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
         {
@@ -68,6 +43,13 @@ namespace HW7_CSharp
                                               Math.Pow(_secondComplexNum.numB, 2));
             return complexNumDivisionResult;
         }
+
+
+
+
+
+
+
         static void Main(string[] args)
         {
             //  1.  Создайте структуру, описывающую комплексное число. Реализуйте арифметические операции
