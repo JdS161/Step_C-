@@ -8,21 +8,21 @@ namespace HW7_CSharp
 {
     enum CarColor
     {
+        NONE,
         BLACK,
         WHITE,
         GREEN,
         YELLOW,
         BLUE,
         RED,
-        CUSTOM,
-        NONE
+        CUSTOM
     }
     enum Transmission
     {
+        NONE,
         MANUAL,
         AUTOMATIC,
-        SEMIAUTOMATIC,
-        NONE
+        SEMIAUTOMATIC
     }
     struct Auto
     {
@@ -62,8 +62,8 @@ namespace HW7_CSharp
         }
         public double CarWheelDiameter
         {
-            get { return CarWheelDiameter; }
-            set { CarWheelDiameter = value; }
+            get { return carWheelDiameter; }
+            set { carWheelDiameter = value; }
         }
         public CarColor CarColor
         {
@@ -72,8 +72,8 @@ namespace HW7_CSharp
         }
         public Transmission CarGearBox
         {
-            get { return CarGearBox; }
-            set { CarGearBox = value; }
+            get { return carGearBox; }
+            set { carGearBox = value; }
         }
 
 

@@ -45,10 +45,104 @@ namespace HW7_CSharp
         }
 
 
+        static Auto FillAuto()
+        {
+            Auto car = new Auto();
+            Console.Write("Fill the parameters of he car:\n" +
+                              "\nName of the car: ");
+            car.CarName = Console.ReadLine();
+            Console.Write("Length of the car: ");
+            car.CarLength = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Clearance of the car: ");
+            car.CarClearance = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Engine's displacement of the car: ");
+            car.CarEngineDisplacement = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Engine's power of the car: ");
+            car.CarEnginePower = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Wheel's diameter of the car: ");
+            car.CarWheelDiameter = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Color of the car by choosing one of the following options:" +
+                "\n(1)BLACK (2)WHITE (3)GREEN (4)YELLOW (5)BLUE (6)RED (7)CUSTOM: ");
+            int colorOption = Convert.ToInt32(Console.ReadLine());
+            switch (colorOption)
+            {
+                case 1:
+                    car.CarColor = CarColor.BLACK;
+                    break;
+                case 2:
+                    car.CarColor = CarColor.WHITE;
+                    break;
+                case 3:
+                    car.CarColor = CarColor.GREEN;
+                    break;
+                case 4:
+                    car.CarColor = CarColor.YELLOW;
+                    break;
+                case 5:
+                    car.CarColor = CarColor.BLUE;
+                    break;
+                case 6:
+                    car.CarColor = CarColor.RED;
+                    break;
+                case 7:
+                    car.CarColor = CarColor.CUSTOM;
+                    break;
+                default:
+                    Console.WriteLine("Wrong option choosen.");
+                    car.CarColor = CarColor.NONE;
+                    break;
+            }
+
+            Console.Write("Transmission type of the car by choosing one of the following options:" +
+                "\n(1)MANUAL (2)AUTOMATIC (3)SEMI-AUTOMATIC: ");
+            int transmissionOption = Convert.ToInt32(Console.ReadLine());
+            switch (transmissionOption)
+            {
+                case 1:
+                    car.CarGearBox = Transmission.MANUAL;
+                    break;
+                case 2:
+                    car.CarGearBox = Transmission.AUTOMATIC;
+                    break;
+                case 3:
+                    car.CarGearBox = Transmission.SEMIAUTOMATIC;
+                    break;
+                default:
+                    Console.WriteLine("Wrong option choosen.");
+                    car.CarGearBox = Transmission.NONE;
+                    break;
+            }
+            return car;
+        }
 
 
 
+        static string Search(Auto _auto, int _option)
+        {            
+            switch (_option)
+            {
+                case 1:
+                    return _auto.CarName.ToString();                    
+                case 2:
+                    return _auto.CarClearance.ToString();                    
+                case 3:
+                    return _auto.CarEngineDisplacement.ToString();                    
+                case 4:
+                    return _auto.CarEnginePower.ToString();                   
+                case 5:
+                    return _auto.CarWheelDiameter.ToString();                    
+                case 6:
+                    return _auto.CarColor.ToString();                   
+                case 7:
+                    return _auto.CarGearBox.ToString();
+                default:
+                    return "Wrong option selected";
+                    
+            }            
+        }
 
+    
 
         static void Main(string[] args)
         {
@@ -74,10 +168,37 @@ namespace HW7_CSharp
 
 
             Auto Car1 = new Auto("First car", 2.4, 0.25, 1.7, 149, 50, CarColor.BLACK, Transmission.MANUAL);
+            Auto Car2 = new Auto();
 
             Console.WriteLine(Car1.ToString());
-            Car1.CarName = "Holly";
-            Console.WriteLine(Car1.ToString());
+           
+            Console.WriteLine();
+            //Console.WriteLine(Car1.ToString());
+
+            Car2 = FillAuto();
+            Console.WriteLine(Car2.ToString());
+
+            while (Console.ReadKey().Key != ConsoleKey.Escape)
+            {
+                System.Console.Clear();
+                Console.WriteLine("\nChoose a parameter you want to display:" +
+                               "\n(1) - car's name;" +
+                               "\n(2) - car's clearance;" +
+                               "\n(3) - car's engine displacement;" +
+                               "\n(4) - car's engine power;" +
+                               "\n(5) - car's wheel diameter;" +
+                               "\n(6) - car's color;" +
+                               "\n(7) - car's transmittion type.");
+
+                Console.Write("\nYour selection: ");
+                int option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                Console.WriteLine(Search(Car1, option));
+                Console.WriteLine("\nPress <Esc> for exit, <Enter> to continue...\n");
+            }
+
+            Console.WriteLine(Car2.ToString());
+            Console.ReadKey();
 
         }
     }
