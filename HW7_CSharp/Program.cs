@@ -61,13 +61,23 @@ namespace HW7_CSharp
 
             ComplexNum first = new ComplexNum(4,6);
             ComplexNum second = new ComplexNum(2, -9);
-
             Console.WriteLine();
+            Console.WriteLine($"First complex number  = {first.ToString()}");
+            Console.WriteLine($"Second complex number = {second.ToString()}\n");
             Console.WriteLine($"Addition       = {ComplexAddition(first, second).ToString()}");
             Console.WriteLine($"Subtraction    = {ComplexSubtraction(first, second).ToString()}");
             Console.WriteLine($"Multiplication = {ComplexMultiplication(first, second).ToString()}");
             Console.WriteLine($"Division       = {ComplexDivision(first, second).ToString()}");
             Console.WriteLine();
+
+
+
+
+            Auto Car1 = new Auto("First car", 2.4, 0.25, 1.7, 149, 50, CarColor.BLACK, Transmission.MANUAL);
+
+            Console.WriteLine(Car1.ToString());
+            Car1.CarName = "Holly";
+            Console.WriteLine(Car1.ToString());
 
         }
     }
