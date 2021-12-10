@@ -10,8 +10,7 @@ namespace HW7_CSharp
     {
         public double numA;
         public double numB;
-        static double i = Math.Sqrt(-1);
-
+      
         public ComplexNum(double _numA, double _numB)
         {
             this.numA = _numA;

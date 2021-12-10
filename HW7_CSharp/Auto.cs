@@ -35,6 +35,7 @@ namespace HW7_CSharp
         private CarColor carColor;
         private Transmission carGearBox;
 
+        //Car properties
         public string CarName
         {
             get { return carName; }
@@ -76,9 +77,6 @@ namespace HW7_CSharp
             set { carGearBox = value; }
         }
 
-
-
-
         public Auto(string _carName,
                     double _carLength,
                     double _carClearance,
@@ -100,7 +98,7 @@ namespace HW7_CSharp
 
         public override string ToString()
         {
-            return  $"CAR:" +
+            return  $"\n CAR:" +
                     $"\nName                  = {carName}" +
                     $"\nLength                = {carLength}" +
                     $"\nClearance             = {carClearance}" +
@@ -110,7 +108,9 @@ namespace HW7_CSharp
                     $"\nColor                 = {carColor}" +
                     $"\nTransmission          = {carGearBox}";
         }
-
-
     }
+
+
+
+
 }

@@ -4,8 +4,6 @@ namespace HW7_CSharp
 {
     class Program
     {
-        
-
         static ComplexNum ComplexAddition(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
         {
             ComplexNum complexSumResult = new ComplexNum();
@@ -19,8 +17,7 @@ namespace HW7_CSharp
             complexSubtractionResult.numA = _firstComplexNum.numA - _secondComplexNum.numA;
             complexSubtractionResult.numB = _firstComplexNum.numB - _secondComplexNum.numB;
             return complexSubtractionResult;
-        }
-        
+        }        
         static ComplexNum ComplexMultiplication(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
         {
             ComplexNum complexMultiplicationResult = new ComplexNum();
@@ -115,26 +112,25 @@ namespace HW7_CSharp
             }
             return car;
         }
-
-
-
         static string Search(Auto _auto, int _option)
         {            
             switch (_option)
             {
                 case 1:
-                    return _auto.CarName.ToString();                    
+                    return _auto.CarName.ToString();
                 case 2:
-                    return _auto.CarClearance.ToString();                    
+                    return _auto.CarLength.ToString();
                 case 3:
-                    return _auto.CarEngineDisplacement.ToString();                    
+                    return _auto.CarClearance.ToString();                    
                 case 4:
-                    return _auto.CarEnginePower.ToString();                   
+                    return _auto.CarEngineDisplacement.ToString();                    
                 case 5:
-                    return _auto.CarWheelDiameter.ToString();                    
+                    return _auto.CarEnginePower.ToString();                   
                 case 6:
-                    return _auto.CarColor.ToString();                   
+                    return _auto.CarWheelDiameter.ToString();                    
                 case 7:
+                    return _auto.CarColor.ToString();                   
+                case 8:
                     return _auto.CarGearBox.ToString();
                 default:
                     return "Wrong option selected";
@@ -148,11 +144,7 @@ namespace HW7_CSharp
         {
             //  1.  Создайте структуру, описывающую комплексное число. Реализуйте арифметические операции
             //      с комплексными числами: сумму, разность, умножение, деление.
-
-            //  2.  Реализовать структуру "Автомобиль" (длина, клирес (высота посадки), объем двигателя,
-            //      мощность двигателя, диаметр колес, цвет, тип коробки передач). Создайте функции для
-            //      задания значений, отображения значений, поиска значений.
-
+            
             ComplexNum first = new ComplexNum(4,6);
             ComplexNum second = new ComplexNum(2, -9);
             Console.WriteLine();
@@ -164,31 +156,30 @@ namespace HW7_CSharp
             Console.WriteLine($"Division       = {ComplexDivision(first, second).ToString()}");
             Console.WriteLine();
 
+            //  2.  Реализовать структуру "Автомобиль" (длина, клирес (высота посадки), объем двигателя,
+            //      мощность двигателя, диаметр колес, цвет, тип коробки передач). Создайте функции для
+            //      задания значений, отображения значений, поиска значений.
 
-
-
-            Auto Car1 = new Auto("First car", 2.4, 0.25, 1.7, 149, 50, CarColor.BLACK, Transmission.MANUAL);
-            Auto Car2 = new Auto();
+            Auto Car1 = new Auto();
 
             Console.WriteLine(Car1.ToString());
            
             Console.WriteLine();
-            //Console.WriteLine(Car1.ToString());
-
-            Car2 = FillAuto();
-            Console.WriteLine(Car2.ToString());
+            Car1 = FillAuto();
+            Console.WriteLine(Car1.ToString());
 
             while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
                 System.Console.Clear();
                 Console.WriteLine("\nChoose a parameter you want to display:" +
                                "\n(1) - car's name;" +
-                               "\n(2) - car's clearance;" +
-                               "\n(3) - car's engine displacement;" +
-                               "\n(4) - car's engine power;" +
-                               "\n(5) - car's wheel diameter;" +
-                               "\n(6) - car's color;" +
-                               "\n(7) - car's transmittion type.");
+                               "\n(2) - car's length;" +
+                               "\n(3) - car's clearance;" +
+                               "\n(4) - car's engine displacement;" +
+                               "\n(5) - car's engine power;" +
+                               "\n(6) - car's wheel diameter;" +
+                               "\n(7) - car's color;" +
+                               "\n(8) - car's transmittion type.");
 
                 Console.Write("\nYour selection: ");
                 int option = Convert.ToInt32(Console.ReadLine());
@@ -196,8 +187,8 @@ namespace HW7_CSharp
                 Console.WriteLine(Search(Car1, option));
                 Console.WriteLine("\nPress <Esc> for exit, <Enter> to continue...\n");
             }
-
-            Console.WriteLine(Car2.ToString());
+            
+            Console.WriteLine(Car1.ToString());
             Console.ReadKey();
 
         }
