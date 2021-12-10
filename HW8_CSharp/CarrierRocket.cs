@@ -20,7 +20,7 @@ namespace HW8_CSharp
         NONE,
         SMALL_LIFT,
         MEDIUM_LIFT,
-        HEAVE_LIFT,
+        HEAVY_LIFT,
         SUPER_HEAVY_LIFT
     }
     enum Spacecraft
@@ -45,31 +45,64 @@ namespace HW8_CSharp
 
     class CarrierRocket
     {
-        private string carrierName;
-        private double carrierLength;
         private double carrierWeight;
-        private bool carrierReusable = false;
-        private bool carrierPrivate = false;
         private CarrierType carrierType;
         private CarrierMassType carrierMassType;
         private Spacecraft carrierSpacecraft;
         private CountryOfOrigin carrierCountry;
 
-
-
-
-
         public CarrierRocket()
         {
-            carrierName = "EMPTY";
-            carrierLength = 0;
+            CarrierName = "EMPTY";
+            CarrierLength = 0;
             carrierWeight = 0;
-            carrierReusable = false;
-            carrierPrivate = false;
+            CarrierReusable = false;
+            CarrierPrivate = false;
             carrierType = CarrierType.NONE;
             carrierMassType = CarrierMassType.NONE;
             carrierSpacecraft = Spacecraft.NONE;
             carrierCountry = CountryOfOrigin.NONE;
         }
+
+        //Properties
+        public string CarrierName { get; set; }
+        public double CarrierLength { get; set; }
+        public double CarrierWeight
+        {
+            get { return carrierWeight; }
+            set
+            {
+                carrierWeight = value;
+                if (value < 2000)
+                {
+                    carrierMassType = CarrierMassType.SMALL_LIFT;
+                }
+                else if (value >= 2000 && value < 20000)
+                {
+                    carrierMassType = CarrierMassType.MEDIUM_LIFT;
+                }
+                else if (value >= 20000 && value < 50000)
+                {
+                    carrierMassType = CarrierMassType.HEAVY_LIFT;
+                }
+                else if (value >= 50000)
+                {
+                    carrierMassType = CarrierMassType.SUPER_HEAVY_LIFT;
+                }
+                else
+                {
+                    carrierMassType = CarrierMassType.NONE;
+                }
+            }
+        }
+        public bool CarrierReusable { get; set; } = false;
+        public bool CarrierPrivate { get; set; } = false;
+        public Spacecraft CarrierSpacraft { get; set; }
+        public CountryOfOrigin CarrierCountry { get; set; } = CountryOfOrigin.NONE;
+        public CarrierType CarrierType { get; set; }
+
+
+
+
     }
 }
