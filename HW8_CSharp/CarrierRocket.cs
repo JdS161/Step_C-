@@ -45,7 +45,12 @@ namespace HW8_CSharp
 
     class CarrierRocket
     {
+        private static double escapeSpeed;
+
+
+
         private double carrierWeight;
+        private bool carrierPassenger = false;
         private CarrierType carrierType;
         private CarrierMassType carrierMassType;
         private Spacecraft carrierSpacecraft;
@@ -62,6 +67,11 @@ namespace HW8_CSharp
             carrierMassType = CarrierMassType.NONE;
             carrierSpacecraft = Spacecraft.NONE;
             carrierCountry = CountryOfOrigin.NONE;
+        }
+
+        static CarrierRocket()
+        {
+            EscapeSpeed = 40270;
         }
 
         //Properties
@@ -97,7 +107,64 @@ namespace HW8_CSharp
         }
         public bool CarrierReusable { get; set; } = false;
         public bool CarrierPrivate { get; set; } = false;
-        public Spacecraft CarrierSpacraft { get; set; }
+        public bool CarrierPassenger
+        {
+            get { return carrierPassenger; }
+            set
+            {
+                carrierPassenger = value;
+                if (carrierPassenger == true)
+                {
+                    Console.WriteLine("Choose your type of the PASSENGER spacecraft:" +
+                        $"\n (1)SPACE_CAPSULE (2)SPACE_STATION (3)SPACEPLANE");
+                    int spacecraftOption = Convert.ToInt32(Console.ReadLine());
+                    switch (spacecraftOption)
+                    {
+                        case 1:
+                            carrierSpacecraft = Spacecraft.HUMAN_SPACE_CAPSULE;
+                            break;
+                        case 2:
+                            carrierSpacecraft = Spacecraft.HUMAN_SPACE_STATION;
+                            break;
+                        case 3:
+                            carrierSpacecraft = Spacecraft.HUMAN_SPACEPLANE;
+                            break;
+                        default:
+                            carrierSpacecraft = Spacecraft.NONE;
+                            break;
+                    }
+                }
+                if (carrierPassenger == false)
+                {
+                    Console.WriteLine("Choose your type of the ROBOTIC spacecraft:" +
+                        $"\n (1)SATELLITE (2)SPACE_PROBE (3)CARGO_SPACECRAFT");
+                    int spacecraftOption = Convert.ToInt32(Console.ReadLine());
+                    switch (spacecraftOption)
+                    {
+                        case 1:
+                            carrierSpacecraft = Spacecraft.ROBOTIC_SATELLITE;
+                            break;
+                        case 2:
+                            carrierSpacecraft = Spacecraft.ROBOTIC_SPACE_PROBE;
+                            break;
+                        case 3:
+                            carrierSpacecraft = Spacecraft.ROBOTIC_CARGO_SPACECRAFT;
+                            break;
+                        default:
+                            carrierSpacecraft = Spacecraft.NONE;
+                            break;
+                    }
+                }
+            }
+        }
+        public static double EscapeSpeed
+            {
+            get { return escapeSpeed; }
+            set { escapeSpeed = value; }
+            }
+
+
+        //public Spacecraft CarrierSpacraft { get; set; }
         public CountryOfOrigin CarrierCountry { get; set; } = CountryOfOrigin.NONE;
         public CarrierType CarrierType { get; set; }
 
