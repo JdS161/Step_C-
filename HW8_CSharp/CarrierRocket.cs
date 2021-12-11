@@ -46,7 +46,7 @@ namespace HW8_CSharp
     class CarrierRocket
     {
         private static double escapeSpeed;
-
+        private static int lineKarman = 100000;
 
 
         private double carrierWeight;
@@ -54,19 +54,36 @@ namespace HW8_CSharp
         private CarrierType carrierType;
         private CarrierMassType carrierMassType;
         private Spacecraft carrierSpacecraft;
-        private CountryOfOrigin carrierCountry;
 
         public CarrierRocket()
         {
             CarrierName = "EMPTY";
             CarrierLength = 0;
-            carrierWeight = 0;
+            CarrierWeight = 0;
             CarrierReusable = false;
             CarrierPrivate = false;
-            carrierType = CarrierType.NONE;
+            CarrierType = CarrierType.NONE;
             carrierMassType = CarrierMassType.NONE;
             carrierSpacecraft = Spacecraft.NONE;
-            carrierCountry = CountryOfOrigin.NONE;
+            CarrierCountry = CountryOfOrigin.NONE;
+        }
+        public CarrierRocket(string _name,
+                             double _length,
+                             double _weight,
+                             bool   _reusable,
+                             bool   _private,
+                             bool   _passenger,
+                             CarrierType _carrierType,
+                             CountryOfOrigin _country)
+        {
+            this.CarrierName        = _name;
+            this.CarrierLength      = _length;
+            this.CarrierWeight      = _weight;
+            this.CarrierReusable    = _reusable;
+            this.CarrierPrivate     = _private;
+            this.CarrierPassenger   = _passenger;
+            this.CarrierType        = _carrierType;
+            this.CarrierCountry     = _country;
         }
 
         static CarrierRocket()
@@ -129,6 +146,7 @@ namespace HW8_CSharp
                         case 3:
                             carrierSpacecraft = Spacecraft.HUMAN_SPACEPLANE;
                             break;
+
                         default:
                             carrierSpacecraft = Spacecraft.NONE;
                             break;
@@ -157,19 +175,61 @@ namespace HW8_CSharp
                 }
             }
         }
+        public CarrierType CarrierType
+        {
+            get { return carrierType; }
+            set {
+
+                Console.WriteLine("Choose your type of the carrier:" +
+                      $"\n (1)SUBORBITAL (2)ORBITAL (3)INTERPLANETARY (4)INTERSTELLAR (5)INTERGALACTIC");
+                int carrierTypeOption = Convert.ToInt32(Console.ReadLine());
+                switch (carrierTypeOption)
+                {
+                    case 1:
+                        carrierType = CarrierType.SUBORBITAL;
+                        break;
+                    case 2:
+                        carrierType = CarrierType.ORBITAL;
+                        break;
+                    case 3:
+                        carrierType = CarrierType.INTERPLANETARY;
+                        break;
+                    case 4:
+                        carrierType = CarrierType.INTERSTELLAR;
+                        break;
+                    case 5:
+                        carrierType = CarrierType.INTERGALACTIC;
+                        break;
+                    default:
+                        carrierType = CarrierType.NONE;
+                        break;
+                }
+            }
+        }
+        public CountryOfOrigin CarrierCountry { get; set; } = CountryOfOrigin.NONE;
+
         public static double EscapeSpeed
             {
             get { return escapeSpeed; }
             set { escapeSpeed = value; }
             }
+        public static int LineKarman
+        {
+            get { return lineKarman; }
+        }
 
-
-        //public Spacecraft CarrierSpacraft { get; set; }
-        public CountryOfOrigin CarrierCountry { get; set; } = CountryOfOrigin.NONE;
-        public CarrierType CarrierType { get; set; }
-
-
-
+        public override string ToString()
+        {
+            return $"\nLAUNCHER:" +
+                   $"\nNAME:          {CarrierName}" +
+                   $"\nLENGTH:        {CarrierLength}" +
+                   $"\nWEIGHT:        {CarrierWeight} => {carrierMassType}" +
+                   $"\nCARRIER TYPE:  {CarrierType}" +
+                   $"\nREUSABILITY:   {CarrierReusable}" +
+                   $"\nPRIVATE:       {CarrierPrivate}" +
+                   $"\nPASSENGER:     {CarrierPassenger} => {carrierSpacecraft}" +
+                   $"\nORIGIN:        {CarrierCountry}";
+        }
 
     }
 }
