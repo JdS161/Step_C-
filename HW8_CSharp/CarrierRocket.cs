@@ -43,7 +43,7 @@ namespace HW8_CSharp
         USSR
     }
 
-    class CarrierRocket
+    partial class CarrierRocket
     {
         private static double escapeSpeed;
         private static int lineKarman = 100000;
@@ -230,6 +230,8 @@ namespace HW8_CSharp
                    $"\nPASSENGER:     {CarrierPassenger} => {carrierSpacecraft}" +
                    $"\nORIGIN:        {CarrierCountry}";
         }
+
+        partial void Launch(CarrierRocket _rocket);
 
     }
 }

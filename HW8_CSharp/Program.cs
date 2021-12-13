@@ -4,13 +4,7 @@ namespace HW8_CSharp
 {
     class Program
     {
-        public partial class CarrierRocket
-        {
-            static void Launch(CarrierRocket _rocket)
-            {
-
-            }
-        }
+        
 
 
         static void Main(string[] args)
@@ -43,6 +37,22 @@ namespace HW8_CSharp
             Console.WriteLine();
             CarrierRocket launcher2 = new CarrierRocket("Falcon", 2344,60000,true,true,false,CarrierType.ORBITAL,CountryOfOrigin.USA);
             Console.WriteLine(launcher2.ToString());
+
+            //Console.WriteLine($"{launcher2.Launch(launcher2)}");
+            //CarrierRocket.Launch(launcher2);
+            //launcher2.Launch(launcher2);
+
+            launcher2.Launched(launcher2);
+
+            CarrierRocketPool group = new CarrierRocketPool();
+            group.AddRocket(launcher1);
+            group.AddRocket(launcher2);
+
+
+            Console.WriteLine(group.ToString());
+
+
+
         }
     }
 }
