@@ -8,22 +8,40 @@ namespace HW9_CSharp
 {
     class Triangle : Figure
     {
-        public double SideAB { get; set; }
-        public double SideBC { get; set; }
-        public double SideCD { get; set; }
-        public double AngleABC { get; set; }
-        public double AngleBCA { get; set; }
-        public double AngleCAB { get; set; }
+        public double SideA { get; set; }
+        public double SideB { get; set; }
+        public double SideC { get; set; }
         
+        
+        public Triangle()
+        {
+            Name = "EMPTY";
+            SideA = 0;
+            SideB = 0;
+            SideC = 0;
+        }
+
+        public Triangle(string _name, double _sideA, double _sideB, double _sideC)
+        {
+            this.Name = _name;
+            this.SideA = _sideA;
+            this.SideB = _sideB;
+            this.SideC = _sideC;
+        }
 
         public override double Perimeter()
         {
-            throw new NotImplementedException();
+            return SideA + SideB + SideC;
         }
 
         public override double Area()
         {
-            throw new NotImplementedException();
+            return Math.Sqrt(Perimeter() / 2 * (Perimeter() / 2 - SideA) * (Perimeter() / 2 - SideB) * (Perimeter() / 2 - SideC));
+        }
+
+        public override string ToString()
+        {
+            return $"Triangle {Name}: Side A ={SideA}, SIde B = {SideB}, Side C = {SideC};";
         }
     }
 }
