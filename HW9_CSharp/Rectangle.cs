@@ -8,14 +8,36 @@ namespace HW9_CSharp
 {
     class Rectangle: Figure
     {
+
+        public double SideA { get; set; }
+        public double SideB { get; set; }
+
+        public Rectangle()
+        {
+            Name = "EMPTY";
+            SideA = 0;
+            SideB = 0;
+        }
+
+        public Rectangle(string _name, double _sideA, double _sideB)
+        {
+            this.Name = _name;
+            this.SideA = _sideA;
+            this.SideB = _sideB;
+        }
         public override double Perimeter()
         {
-            throw new NotImplementedException();
+            return 2*(SideA+SideB);
         }
 
         public override double Area()
         {
-            throw new NotImplementedException();
+            return SideA*SideB;
+        }
+
+        public override string ToString()
+        {
+            return $"Rectanle {Name}: Side A = {SideA}, Side B = {SideB}";
         }
     }
 }

@@ -30,5 +30,10 @@ namespace HW9_CSharp
         {
             return Side*Side;
         }
+
+        public override string ToString()
+        {
+            return $"Squre {Name}: Side {Side}"; 
+        }
     }
 }

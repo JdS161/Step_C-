@@ -36,5 +36,10 @@ namespace HW9_CSharp
         {
             return Side*Heigth;
         }
+
+        public override string ToString()
+        {
+            return $"Rhombus { Name}: Side = {Side}, Heigth = {Heigth}"; 
+        }
     }
 }
