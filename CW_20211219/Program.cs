@@ -28,7 +28,7 @@ namespace CW_20211219
             ComplexNum resultComplexNum4 =firstCoplexNum++;
             ComplexNum resultComplexNum5 =secondCoplexNum--;
             Console.WriteLine($"{firstCoplexNum} = incremented {resultComplexNum4}");
-            Console.WriteLine($"{secondCoplexNum} = incremented {resultComplexNum5}");
+            Console.WriteLine($"{secondCoplexNum} = decremented {resultComplexNum5}");
 
         }
     }

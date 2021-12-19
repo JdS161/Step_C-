@@ -63,12 +63,69 @@ namespace CW_20211219
         }
 
 
+        //3. relational operator overload 
+        public static bool operator<(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
+        {
+            return _firstComplexNum.Norm() < _secondComplexNum.Norm();
+        }
+        public static bool operator>(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
+        {
+            return _firstComplexNum.Norm() > _secondComplexNum.Norm();
+        }
+        public static bool operator<=(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
+        {
+            return _firstComplexNum.Norm() <= _secondComplexNum.Norm();
+        }
+        public static bool operator>=(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
+        {
+            return _firstComplexNum.Norm() >= _secondComplexNum.Norm();
+        }
+        public static bool operator==(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
+        {
+            return _firstComplexNum.Equals(_secondComplexNum);
+        }
+        public static bool operator!=(ComplexNum _firstComplexNum, ComplexNum _secondComplexNum)
+        {
+            return !_firstComplexNum.Equals(_secondComplexNum);
+        }
+
+
+
+        //4. true/false overload
+        public static bool operator true(ComplexNum _complexNum)
+        {
+            return _complexNum.Re != 0 || _complexNum.Im != 0 ? true : false;
+        }
+        public static bool operator false(ComplexNum _complexNum)
+        {
+            return _complexNum.Re == 0 || _complexNum.Im == 0 ? true : false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is ComplexNum) //if it is POSSIBWLE EXPLICITLY convert 
+            {
+                ComplexNum _firstComplexNum = (ComplexNum)obj;
+                return Re == _firstComplexNum.Re && Im == _firstComplexNum.Im;
+            }
+            return base.Equals(obj);
+        }
+        public override int GetHashCode()
+        {
+            return ToString().GetHashCode();
+        }
+
+
+
         public override string ToString()
         {
             return $"{Re} + {Im}i";
         }
 
-
+        public double Norm()
+        {
+            return Math.Sqrt(Re * Re + Im * Im);
+        }
 
     }
 }
