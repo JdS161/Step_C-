@@ -39,7 +39,7 @@ namespace HW9_CSharp
 
         public override string ToString()
         {
-            return $"Rhombus { Name}: Side = {Side}, Heigth = {Heigth}"; 
+            return $"Rhombus {Name}: Side = {Side}, Heigth = {Heigth}."; 
         }
     }
 }

@@ -8,13 +8,30 @@ namespace HW9_CSharp
 {
     class Circle : Figure
     {
+        public double Radius { get; set; }
+
+        public Circle()
+        {
+            Name = "EMPTY";
+            Radius = 0;
+        }
+        public Circle(string _name, double _radius)
+        {
+            this.Name = _name;
+            this.Radius = _radius;
+        }
         public override double Perimeter()
         {
-            throw new NotImplementedException();
+            return 2* Math.PI * Radius;
         }
         public override double Area()
         {
-            throw new NotImplementedException();
+            return Math.PI * Math.Pow(Radius,2);
+        }
+
+        public override string ToString()
+        {
+            return $"Circle {Name} : Radius = {Radius}.";
         }
     }
 }

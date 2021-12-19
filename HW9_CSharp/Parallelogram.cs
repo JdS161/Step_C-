@@ -37,7 +37,7 @@ namespace HW9_CSharp
 
         public override string ToString()
         {
-            return $"Parallelogram {Name}: Side A = {SideA}, Side B = {SideB}, Heigth = {Heigth}";
+            return $"Parallelogram {Name}: Side A = {SideA}, Side B = {SideB}, Heigth = {Heigth}.";
         }
     }
 }

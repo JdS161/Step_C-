@@ -33,7 +33,7 @@ namespace HW9_CSharp
 
         public override string ToString()
         {
-            return $"Squre {Name}: Side {Side}"; 
+            return $"Squre {Name}: Side {Side}."; 
         }
     }
 }

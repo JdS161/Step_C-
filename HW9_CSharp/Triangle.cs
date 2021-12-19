@@ -41,7 +41,7 @@ namespace HW9_CSharp
 
         public override string ToString()
         {
-            return $"Triangle {Name}: Side A ={SideA}, SIde B = {SideB}, Side C = {SideC};";
+            return $"Triangle {Name}: Side A ={SideA}, SIde B = {SideB}, Side C = {SideC}.";
         }
     }
 }

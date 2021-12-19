@@ -37,7 +37,7 @@ namespace HW9_CSharp
 
         public override string ToString()
         {
-            return $"Rectanle {Name}: Side A = {SideA}, Side B = {SideB}";
+            return $"Rectanle {Name}: Side A = {SideA}, Side B = {SideB}.";
         }
     }
 }
