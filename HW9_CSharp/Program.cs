@@ -11,12 +11,70 @@ namespace HW9_CSharp
              * Треугольник, квадрат, Ромб, прямоугольник, параллелограмм, трапеция,
              * круг, Эллипс. Реализовать конструкторы, которые однозначно определяют
              * объекты днных классов.
-             *      Реализовать класс ЭСоставноая фигураЭ, который может состоять 
+             *      Реализовать класс "Составноая фигура", который может состоять 
              * из любого количества "Геометрических фигур". Для данного класса 
              * определить метод нахождения площади фигуры. Создать диаграмму 
              * взаимоотношений классов.
              * 
              */
+
+            Figure rect = new Rectangle("ABCD", 3, 5);
+            Console.WriteLine(rect);
+            Console.WriteLine($"Retangle's {rect.Name} PERIMETER = {rect.Perimeter()}");
+            Console.WriteLine($"Retangle's {rect.Name} AREA = {rect.Area()}\n");
+
+            Figure circle = new Circle("O", 9);
+            Console.WriteLine(circle);
+            Console.WriteLine($"Circle's {circle.Name} PERIMETER = {circle.Perimeter()}");
+            Console.WriteLine($"Circle's {circle.Name} AREA = {circle.Area()}\n");
+
+            Figure ellipse = new Ellipse("A", 4, 8);
+            Console.WriteLine(ellipse);
+            Console.WriteLine($"Ellipse's {ellipse.Name} PERIMETER = {ellipse.Perimeter()}");
+            Console.WriteLine($"Ellipse's {ellipse.Name} AREA = {ellipse.Area()}\n");
+
+            Figure square = new Square("EFGH", 5);
+            Console.WriteLine(square);
+            Console.WriteLine($"Square's {square.Name} PERIMETER = {square.Perimeter()}");
+            Console.WriteLine($"Square's {square.Name} AREA = {square.Area()}\n");
+
+            Figure trapezoid = new Trapezoid("IJKL", 2, 4, 5, 7);
+            Console.WriteLine(trapezoid);
+            Console.WriteLine($"Trapezoid's {trapezoid.Name} PERIMETER = {trapezoid.Perimeter()}");
+            Console.WriteLine($"Trapezoid's {trapezoid.Name} AREA = {trapezoid.Area()}\n");
+
+            Figure triangle = new Triangle("MNO", 3, 4, 7);
+            Console.WriteLine(triangle);
+            Console.WriteLine($"Triangle's {triangle.Name} PERIMETER = {triangle.Perimeter()}");
+            Console.WriteLine($"Triangle's {triangle.Name} AREA = {triangle.Area()} \n");
+
+            Figure parallelogram = new Parallelogram("PQRS", 4, 8, 6);
+            Console.WriteLine(parallelogram);
+            Console.WriteLine($"Parallelogram's {parallelogram.Name} PERIMETER = {parallelogram.Perimeter()}");
+            Console.WriteLine($"Parallelogram's {parallelogram.Name} AREA = {parallelogram.Area()} \n");
+
+            Figure rhombus = new Rhombus("TUVW", 6, 10);
+            Console.WriteLine(rhombus);
+            Console.WriteLine($"Rhombus's {rhombus.Name} PERIMETER = {rhombus.Perimeter()}");
+            Console.WriteLine($"Rhombus's {rhombus.Name} AREA = {rhombus.Area()}\n");
+
+
+            FiguresPool pool = new FiguresPool();
+            pool.AddFigure(rect);
+            pool.AddFigure(circle);
+            pool.AddFigure(ellipse);
+            pool.AddFigure(square);
+            pool.AddFigure(trapezoid);
+            pool.AddFigure(triangle);
+            pool.AddFigure(parallelogram);
+            pool.AddFigure(rhombus);
+
+            Console.WriteLine();
+            Console.WriteLine(pool.ToString());
+            Console.WriteLine($"\nTotal Perimeter = {pool.GetTotalPerimeter()}");
+            Console.WriteLine($"\nTotal Area = {pool.GetTotalArea()}");
+
+
         }
     }
 }
