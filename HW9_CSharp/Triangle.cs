@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Triangle : Figure
+    class Triangle : Figure, IPrintable
     {
         public double SideA { get; set; }
         public double SideB { get; set; }
@@ -42,6 +42,11 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Triangle {Name}: Side A ={SideA}, SIde B = {SideB}, Side C = {SideC}.";
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(this);
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class FiguresPool
+    class Scene
     {
         List<Figure> figures;
 
-        public FiguresPool()
+        public Scene()
         {
             figures = new List<Figure>();
         }
@@ -52,7 +52,21 @@ namespace HW9_CSharp
             return res;
         }
 
-        
+        public void DrawScene()
+        {
+            foreach (Figure figure in figures)
+            {
+                if(figure is IPrintable)
+                {
+                    ((IPrintable)figure).Print();
+                }
+                else
+                {
+                    ((IDrawable)figure).ConsoleDraw();
+                }
+                Console.WriteLine();
+            }
+        }
 
     }
 }

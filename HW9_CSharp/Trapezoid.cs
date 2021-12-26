@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Trapezoid: Figure 
+    class Trapezoid: Figure, IPrintable
     {
         public double SideA { get; set; }
         public double SideB { get; set; }
@@ -44,6 +44,11 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Trapezoid {Name}: Side A = {SideA}, Side B = {SideB}, Side C = {SideC}, Side D = {SideD}.";
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(this);
         }
     }
 }

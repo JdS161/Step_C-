@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Rhombus : Figure
+    class Rhombus : Figure, IPrintable
 
     {
         public double Side { get; set; }
@@ -40,6 +40,11 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Rhombus {Name}: Side = {Side}, Heigth = {Heigth}."; 
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(this);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Ellipse : Figure
+    class Ellipse : Figure, IPrintable
     {
         public double HalfAxisSmall { get; set; }
         public double HalfAxisBig { get; set; }
@@ -36,6 +36,11 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Ellipse {Name}: Small half-axis = {HalfAxisSmall}, Big half-axis = {HalfAxisBig}.";
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(this);
         }
     }
 }

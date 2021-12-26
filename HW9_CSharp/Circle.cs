@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Circle : Figure
+    class Circle : Figure, IPrintable
     {
         public double Radius { get; set; }
 
@@ -32,6 +32,13 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Circle {Name} : Radius = {Radius}.";
+        }
+
+       
+
+        public void Print()
+        {
+            Console.WriteLine(this);
         }
     }
 }

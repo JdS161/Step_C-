@@ -6,7 +6,8 @@ namespace HW9_CSharp
     {
         static void Main(string[] args)
         {
-            /*      Разработать абстрактный класс "Геометрическая Фигура" с методами 
+            /*     HW9
+             *     Разработать абстрактный класс "Геометрическая Фигура" с методами 
              * "Площадь фигуры" и "Периметр Фигуры". Разработать классы наследники:
              * Треугольник, квадрат, Ромб, прямоугольник, параллелограмм, трапеция,
              * круг, Эллипс. Реализовать конструкторы, которые однозначно определяют
@@ -16,6 +17,20 @@ namespace HW9_CSharp
              * определить метод нахождения площади фигуры. Создать диаграмму 
              * взаимоотношений классов.
              * 
+             *      HW10
+             *      Для предыдущего ДЗ на наследование геометрических фигур реализовать 
+             *  2 интерфейса:  IDrawable и IPrintable. Первый имеет метод draw для 
+             *  отрисовки фигуры на консоли (псевдографика), второй print для печати 
+             *  в консоли. Фигуры, которые хотите рисовать, должны имплементить первый 
+             *  интерфейс, остальные второй.
+             *  
+             *  Сделать класс сцена с массивом фигур базового 
+             *  типа (абстрактный класс из предыдущего ДЗ). 
+             *  
+             *  Сделать метод «отрисовать сцену», 
+             *  который перебирает все фигуры и пытается привести к нужному интерфейсу 
+             *  (используйте as или is) и вызвать нужный метод (draw или print).
+             *  
              */
 
             Figure rect = new Rectangle("ABCD", 3, 5);
@@ -59,7 +74,7 @@ namespace HW9_CSharp
             Console.WriteLine($"Rhombus's {rhombus.Name} AREA = {rhombus.Area()}\n");
 
 
-            FiguresPool pool = new FiguresPool();
+            Scene pool = new Scene();
             pool.AddFigure(rect);
             pool.AddFigure(circle);
             pool.AddFigure(ellipse);
@@ -69,11 +84,16 @@ namespace HW9_CSharp
             pool.AddFigure(parallelogram);
             pool.AddFigure(rhombus);
 
-            Console.WriteLine();
-            Console.WriteLine(pool.ToString());
+            
+
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("\n\nSCENE PRINT:\n");
+            pool.DrawScene();
+            Console.WriteLine("-----------------------------------------------------------");
+            
+            
             Console.WriteLine($"\nTotal Perimeter = {pool.GetTotalPerimeter()}");
             Console.WriteLine($"\nTotal Area = {pool.GetTotalArea()}");
-
 
         }
     }

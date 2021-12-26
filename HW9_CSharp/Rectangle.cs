@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Rectangle: Figure
+    class Rectangle: Figure, IDrawable
     {
 
         public double SideA { get; set; }
@@ -38,6 +38,17 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Rectanle {Name}: Side A = {SideA}, Side B = {SideB}.";
+        }
+
+        public void ConsoleDraw()
+        {
+            for (int i = 0; i < SideB; i++)
+            {
+                for (int j = 0; j < SideA; j++)
+                {
+                    Console.Write('*');
+                }Console.WriteLine();
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Square: Figure
+    class Square: Figure,IDrawable
     {
         public double Side { get; set; }
 
@@ -34,6 +34,18 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Squre {Name}: Side {Side}."; 
+        }
+
+        public void ConsoleDraw()
+        {
+            for (int i = 0; i < Side; i++)
+            {
+                for (int j = 0; j < Side; j++)
+                {
+                    Console.Write('*');
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

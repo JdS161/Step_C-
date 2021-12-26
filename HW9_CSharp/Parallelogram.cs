@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW9_CSharp
 {
-    class Parallelogram : Figure
+    class Parallelogram : Figure, IPrintable
     {
         public double SideA { get; set; }
         public double SideB { get; set; }
@@ -38,6 +38,11 @@ namespace HW9_CSharp
         public override string ToString()
         {
             return $"Parallelogram {Name}: Side A = {SideA}, Side B = {SideB}, Heigth = {Heigth}.";
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(this);
         }
     }
 }
