@@ -112,11 +112,6 @@ namespace HW12_CSharp
 
             }
         }
-        //public static Money operator <(Money _lMoney, Money _rMoney)
-        //{
-        //    return _lMoney < _rMoney;
-        //}
-
         public static bool operator ==(Money _lMoney, Money _rMoney)
         {
                 return _lMoney.Equals(_rMoney);
@@ -133,8 +128,6 @@ namespace HW12_CSharp
         }
         public override string ToString()
         {
-            //double res = Amount;
-            
             return $"{String.Format("{0:0.00}", Amount)} {Currency}";
         }
         public override int GetHashCode()
