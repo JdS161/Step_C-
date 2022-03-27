@@ -11,10 +11,13 @@ namespace HW14_CSharp
             Random random = new Random();
             for (int i=0; i<10; i++)
             {
-                tree.AddNodeToTree(random.Next(0, 30));
+                tree.AddNodeToTree(i);
+                //tree.AddNodeToTree(random.Next(0, 30));
             }
 
             tree.DisplayTree();
+            Console.WriteLine("\n\nFind method:");
+            tree.FindNode(5);
         }
     }
 }

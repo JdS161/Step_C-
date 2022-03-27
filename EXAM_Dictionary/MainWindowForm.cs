@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace EXAM_Dictionary
 {
-    internal class Word_Card
+    internal class MainWindowForm
     {
-        //public string Word { get; set; }
-        public string Translation { get; set; }
-
 
     }
 }
-
-

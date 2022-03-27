@@ -54,15 +54,15 @@ namespace CW_20220116
                 right.DisplayNode(_offset + '\t');
             else
             {
-                Console.WriteLine(_offset + "null");
+                Console.WriteLine(_offset + "(null)");
             }
             if (left != null)
                 left.DisplayNode(_offset + '\t');
             else
             {
-                Console.WriteLine(_offset + "null");
+                Console.WriteLine(_offset + "(null)");
             }
-            Console.WriteLine($"\n{_offset}") ;
+            Console.WriteLine($"\n{_offset})");
         }
 
         public override string ToString()

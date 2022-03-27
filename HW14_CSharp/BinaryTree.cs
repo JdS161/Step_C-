@@ -22,31 +22,31 @@ namespace HW14_CSharp
             }
         }
 
-        //public Node<T> FindNode (int _value)
-        //{
-        //    return this.FindNode(_value, this.root);
-        //}
+        public Node<T> FindNode(T _value)
+        {
+            return this.FindNode(_value, this.root);
+        }
 
-        //private Node<T> FindNode(T _value, Node<T> _node)
-        //{
-        //    if(_node !=null)
-        //    {
-        //        //if (_value == _node.Value)
-        //        if (_node.Value.CompareTo(_value) == 0)
-        //        {
-        //            return _node;
-        //        }
-        //        if (_node.Value.CompareTo(_value) < 0)
-        //        {
-        //            return FindNode(_value, _node.Left);
-        //        }
-        //        else
-        //        {
-        //            return FindNode(_value, _node.Right);
-        //        }
-        //    }
-        //    return null;
-        //}
+        private Node<T> FindNode(T _value, Node<T> _node)
+        {
+            if (_node != null)
+            {
+                //if (_value == _node.Value)
+                if (_node.Value.CompareTo(_value) == 0)
+                {
+                    return _node;
+                }
+                if (_node.Value.CompareTo(_value) < 0)
+                {
+                    return FindNode(_value, _node.Left);
+                }
+                else
+                {
+                    return FindNode(_value, _node.Right);
+                }
+            }
+            return null;
+        }
 
 
         public void DisplayTree()
